@@ -7,3 +7,5 @@ torchvision
 boto3
 requests
 dj-database-url
+psycopg2
+psycopg2-binary
