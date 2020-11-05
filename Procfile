@@ -1,1 +1,1 @@
-web: gunicorn motoclassifier.wsgi --log-file -
+web: gunicorn motoclf.wsgi --log-file -
