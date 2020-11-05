@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Moto clf</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  </head>
+  <body>
+    <div class="background">
+      <div class="content">
+
+        {% block navbar %}
+    		  {% include 'base/navbar.html' %}
+    	  {% endblock %}
+        {% block body %}
+    		  {% include 'base/body.html' %}
+    	  {% endblock %}
+
+        {% block footer %}
+    		  {% include 'base/footer.html' %}
+    	  {% endblock %}
+
+      </div>
+    </div>
+
+
+
+  </body>
+</html>

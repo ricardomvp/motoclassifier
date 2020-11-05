@@ -1,0 +1,16 @@
+{% load static %}
+<div class="upload-form">
+  <form method="post" enctype='multipart/form-data'>
+    {% csrf_token %}
+    <div class="form-group">
+      <input class="form-control"
+            type="file"
+            name="image"
+            placeholder="image to upload"
+            accept="image/jpeg"
+            required="true">
+    </div>
+    {{ form.as_p}}
+    <button type="submit" name="Upload" class="btn-new-image">Upload</button>
+  </form>
+</div>

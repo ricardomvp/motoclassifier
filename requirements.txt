@@ -1,2 +1,6 @@
-pandas
-tensorflow==1.14.0
+django
+pillow
+torch
+torchvision
+boto3
+requests

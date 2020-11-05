@@ -1,0 +1,59 @@
+{% load static %}
+<div class="body">
+
+  <div class="welcome">
+    <h3>
+      Here we love motorcycles and Machine Learning, that's why we combined our
+      two passions and developed this awesome moto classifier.<br><br>
+      Currently the app counts with: <br>
+      <ul>
+        <li>
+          Ten cathegories -> [off_road, naked, scooter, scrambler, cafe_racer, cruiser,
+          sport, touring, bike, quad]<br>
+        </li>
+        <li>
+          A net precision of 60%
+        </li>
+      </ul>
+      <br>
+    </h3>
+    <h4>
+      We're working to develop a more accurated model and add new stuffs :)
+    </h4>
+  </div>
+
+  <hr>
+
+  <div class="new-image">
+    <h2>Upload new image</h2>
+    {% if success %}
+    <p style="color:green;">{{success}}</p>
+    {% endif %}
+    <div class="new-image-container">
+      <h3>Upload an image of your favorite motorcycle and with help of ML we tell u what type it is:</h3>
+      {% block form %}
+        {% include 'base/new_image.html' %}
+      {% endblock %}
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="cards">
+    {% for image in images%}
+      {% block navbar %}
+        {% include 'base/card.html' %}
+      {% endblock %}
+    {% endfor %}
+  </div>
+
+  <div class="pagination">
+    {% for page in pages %}
+      {% block pagination %}
+        {% include 'base/page.html' %}
+      {% endblock %}
+    {% endfor %}
+
+  </div>
+
+</div>
