@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Platzi tutorial</title>
+  </head>
+  <body>
+    <div class="background">
+      <div class="content">
+        <div class="body">
+
+          <div class="welcome">
+            <h2>
+              This corresponses to a <a href="#">tutorial</a> made for platzi students where teach how to deploy your own Machine learning model.
+            </h2>
+          </div>
+
+          <hr>
+
+          <div class="new-image">
+            <h2>Upload new image</h2>
+            <div class="new-image-container">
+              <h3>Upload an image of your favorite motorcycle and with help of ML we tell u what type it is:</h3>
+              <div class="upload-form">
+                <form method="post" enctype='multipart/form-data'>
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <input class="form-control"
+                          type="file"
+                          name="image"
+                          placeholder="image to upload"
+                          accept="image/jpeg"
+                          required="true">
+                  </div>
+                  {{ form.as_p}}
+                  <button type="submit" name="Upload" class="btn-new-image">Upload</button>
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="cards">
+            {% for image in images%}
+            <li class="card">
+              <div class="card-image">
+                <img src="{{image.bucket_url}}" alt="" style= "height: 400px; width: 300px;">
+              </div>
+              <div class="card-description">
+                <div class="card-description-container">
+                  <p>{{image.cathegory}}</p>
+                </div>
+              </div>
+            </li>
+            {% endfor %}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
