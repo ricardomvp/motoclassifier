@@ -25,11 +25,11 @@ def home_redirect(request):
     return redirect('home/page/1')
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
     path('', home_redirect), #redirect
     path('home/', include(('apps.home.urls','home'), namespace='home')),
 ]
 # + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
+    urlpatterns += [path('admin/', admin.site.urls)]
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
